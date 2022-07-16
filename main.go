@@ -29,7 +29,7 @@ func (e MyError) Error() string {
 }
 
 func Perform(args Arguments, writer io.Writer) error {
-	data, err := os.OpenFile(testFile, os.O_RDWR, 0755)
+	data, err := os.OpenFile(testFile, os.O_RDWR|os.O_CREATE, 0755)
 	
 	if err != nil {
 		log.Fatal(err)
